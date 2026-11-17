@@ -1,0 +1,31 @@
+# Python & Virtual Environments
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+*.log
+
+# Database & Local storage
+*.db
+*.sqlite3
+adaptiveprep.db
+
+# Environment variables
+.env
+*.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
