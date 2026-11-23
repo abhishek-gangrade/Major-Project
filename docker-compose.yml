@@ -21,8 +21,8 @@ services:
 
   backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: backend/Dockerfile
     container_name: adaptiveprep_backend
     restart: unless-stopped
     environment:
@@ -36,9 +36,10 @@ services:
       db:
         condition: service_healthy
     command: >
-      sh -c "alembic upgrade head &&
+      sh -c "cd backend && alembic upgrade head &&
              python app/db/seed.py &&
-             uvicorn app.main:app --host 0.0.0.0 --port 8000"
+             cd /app &&
+             uvicorn backend.app.main:app --host 0.0.0.0 --port 8000"
 
   frontend:
     build:
